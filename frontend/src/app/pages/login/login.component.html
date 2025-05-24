@@ -1,28 +1,19 @@
 <div class="login-container">
   <h2>Iniciar sesión</h2>
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <div class="form-group">
+
+  <form (ngSubmit)="onSubmit()" class="login-form">
+    <div class="field">
       <label for="username">Usuario</label>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        [(ngModel)]="username"
-        required
-      />
+      <input id="username" type="text" pInputText [(ngModel)]="username" name="username" required />
     </div>
 
-    <div class="form-group">
+    <div class="field">
       <label for="password">Contraseña</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        [(ngModel)]="password"
-        required
-      />
+      <input id="password" type="password" pPassword [(ngModel)]="password" name="password" required />
     </div>
 
-    <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+    <button pButton type="submit" label="Entrar" class="login-button"></button>
+
+    <p *ngIf="error" class="p-error">{{ error }}</p>
   </form>
 </div>
