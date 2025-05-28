@@ -1,19 +1,27 @@
-<div class="login-container">
-  <h2>Iniciar sesión</h2>
+<!-- Botón hamburguesa -->
+<button
+  class="toggle-btn"
+  (click)="toggleSidebar()"
+>
+  ☰
+</button>
 
-  <form (ngSubmit)="onSubmit()" class="login-form">
-    <div class="field">
-      <label for="username">Usuario</label>
-      <input id="username" type="text" pInputText [(ngModel)]="username" name="username" required />
-    </div>
+<!-- Menú lateral sobrepuesto -->
+<aside [class.open]="sidebarOpen" class="sidebar">
+  <div class="menu-header">Menú</div>
+  <nav class="menu-nav">
+    <a routerLink="/home" (click)="toggleSidebar()">🏠 Inicio</a>
+  </nav>
+</aside>
 
-    <div class="field">
-      <label for="password">Contraseña</label>
-      <input id="password" type="password" pPassword [(ngModel)]="password" name="password" required />
-    </div>
+<!-- Fondo difuso cuando el menú está abierto -->
+<div
+  class="overlay"
+  *ngIf="sidebarOpen"
+  (click)="toggleSidebar()"
+></div>
 
-    <button pButton type="submit" label="Entrar" class="login-button"></button>
-
-    <p *ngIf="error" class="p-error">{{ error }}</p>
-  </form>
-</div>
+<!-- Contenido principal -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

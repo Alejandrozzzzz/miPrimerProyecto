@@ -1,0 +1,24 @@
+<!-- Botón ☰ totalmente fuera del sidebar -->
+<button
+  class="hamburger"
+  (click)="toggleSidebar()"
+  [ngStyle]="{ left: sidebarOpen ? '240px' : '16px' }"
+>
+  ☰
+</button>
+
+<!-- Sidebar -->
+<div class="sidebar" [class.open]="sidebarOpen">
+  <div class="menu-header">Menú</div>
+  <nav>
+    <a routerLink="/home" (click)="toggleSidebar()">🏠 Inicio</a>
+  </nav>
+</div>
+
+<!-- Backdrop -->
+<div class="backdrop" *ngIf="sidebarOpen" (click)="toggleSidebar()"></div>
+
+<!-- Contenido -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

@@ -1,40 +1,27 @@
-<header>
-  <nav class="container">
-    <div class="logo">Mi Sitio</div>
-    <ul class="nav-links">
-      <li><a (click)="scrollToSection('inicio')" href="javascript:void(0)">Inicio</a></li>
-      <li><a (click)="scrollToSection('servicios')" href="javascript:void(0)">Servicios</a></li>
-      <li><a (click)="scrollToSection('acerca')" href="javascript:void(0)">Acerca</a></li>
-      <li><a (click)="scrollToSection('contacto')" href="javascript:void(0)">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
 
-<main class="container">
-  <section class="hero" id="inicio">
-    <h1>Bienvenido a Mi Sitio</h1>
-    <p>Descubre experiencias increíbles y conecta con lo que más te importa</p>
-    <a (click)="scrollToSection('servicios')" href="javascript:void(0)" class="cta-button">Comenzar Ahora</a>
-  </section>
+<section id="inicio" class="hero">
+  <h1>Bienvenido a Mi Sitio</h1>
+  <p>Descubre experiencias increíbles y conecta con lo que más te importa</p>
+  <a (click)="scrollToSection('servicios')" href="javascript:void(0)" class="cta-button">Comenzar Ahora</a>
+</section>
 
-  <section class="features" id="servicios">
-    <div class="feature-card">
-      <span class="feature-icon">🚀</span>
-      <h3>Innovación</h3>
-      <p>Soluciones modernas y creativas que impulsan tu éxito hacia el futuro digital.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">💎</span>
-      <h3>Calidad</h3>
-      <p>Estándares excepcionales en cada proyecto, garantizando resultados superiores.</p>
-    </div>
-    <div class="feature-card">
-      <span class="feature-icon">🌟</span>
-      <h3>Experiencia</h3>
-      <p>Años de expertise combinados con pasión por crear experiencias extraordinarias.</p>
-    </div>
-  </section>
-</main>
+<section id="servicios" class="features">
+  <div class="feature-card">
+    <span class="feature-icon">🚀</span>
+    <h3>Innovación</h3>
+    <p>Soluciones modernas y creativas que impulsan tu éxito hacia el futuro digital.</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-icon">💎</span>
+    <h3>Calidad</h3>
+    <p>Estándares excepcionales en cada proyecto, garantizando resultados superiores.</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-icon">🌟</span>
+    <h3>Experiencia</h3>
+    <p>Años de expertise combinados con pasión por crear experiencias extraordinarias.</p>
+  </div>
+</section>
 
 <footer>
   <div class="container">
