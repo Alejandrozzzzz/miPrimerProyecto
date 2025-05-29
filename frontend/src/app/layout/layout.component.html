@@ -4,14 +4,16 @@
   (click)="toggleSidebar()"
   [ngStyle]="{ left: sidebarOpen ? '240px' : '16px' }"
 >
-  ☰
+  <i class="pi" [ngClass]="sidebarOpen ? 'pi-times' : 'pi-bars'"></i>
 </button>
 
 <!-- Sidebar -->
 <div class="sidebar" [class.open]="sidebarOpen">
   <div class="menu-header">Menú</div>
   <nav>
-    <a routerLink="/home" (click)="toggleSidebar()">🏠 Inicio</a>
+   <a routerLink="/home" (click)="toggleSidebar()">
+  <i class="pi pi-home" style="margin-right: 8px;"></i> Inicio
+  </a>
   </nav>
 </div>
 
