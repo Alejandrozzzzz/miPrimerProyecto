@@ -1,0 +1,68 @@
+<section class="users-wrapper">
+  <!-- Banner superior -->
+  <div class="page-banner">
+    <h1>Usuarios</h1>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="users-container">
+    <div class="actions">
+      <button
+        pButton
+        type="button"
+        label="Agregar Usuario"
+        icon="pi pi-plus"
+        class="add-user-btn"
+      ></button>
+    </div>
+
+    <p-table
+      [value]="users"
+      [paginator]="true"
+      [rows]="5"
+      [scrollable]="true"
+      scrollHeight="flex"
+      class="p-table"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Usuario</th>
+          <th>Email</th>
+          <th>Rol</th>
+          <th>Estado</th>
+          <th>Creado</th>
+          <th>Último Acceso</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-user>
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td>{{ user.status }}</td>
+          <td>{{ user.createdAt }}</td>
+          <td>{{ user.lastLogin }}</td>
+          <td>
+            <button
+              pButton
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-info"
+              style="margin-right: 0.5rem;"
+            ></button>
+            <button
+              pButton
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-danger"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</section>

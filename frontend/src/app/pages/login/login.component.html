@@ -1,27 +1,28 @@
-<!-- Botón hamburguesa -->
-<button
-  class="toggle-btn"
-  (click)="toggleSidebar()"
->
-  ☰
-</button>
+<div class="login-container">
+  <h2>Iniciar sesión</h2>
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div class="form-group">
+      <label for="username">Usuario</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        required
+      />
+    </div>
 
-<!-- Menú lateral sobrepuesto -->
-<aside [class.open]="sidebarOpen" class="sidebar">
-  <div class="menu-header">Menú</div>
-  <nav class="menu-nav">
-    <a routerLink="/home" (click)="toggleSidebar()">🏠 Inicio</a>
-  </nav>
-</aside>
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
 
-<!-- Fondo difuso cuando el menú está abierto -->
-<div
-  class="overlay"
-  *ngIf="sidebarOpen"
-  (click)="toggleSidebar()"
-></div>
-
-<!-- Contenido principal -->
-<main class="main-content">
-  <router-outlet></router-outlet>
-</main>
+    <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+  </form>
+</div>
