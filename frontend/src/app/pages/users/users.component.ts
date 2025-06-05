@@ -3,22 +3,18 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
-<<<<<<< HEAD
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { Password } from 'primeng/password';
-=======
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { UsersService, NewUser } from '../../services/users.service';
->>>>>>> c5b2ad9ed2b816feb3611e2a7ffb88615217d6d8
 
 @Component({
   standalone: true,
   selector: 'app-users',
-<<<<<<< HEAD
   imports: [
     CommonModule,
     FormsModule,         // <-- NECESARIO para [(ngModel)]
@@ -28,14 +24,11 @@ import { UsersService, NewUser } from '../../services/users.service';
     InputTextModule,     // <-- NECESARIO para pInputText
     DropdownModule       // <-- NECESARIO para p-dropdown
   ],
-=======
   imports: [CommonModule, FormsModule, TableModule, ButtonModule, InputTextModule, PasswordModule],
->>>>>>> c5b2ad9ed2b816feb3611e2a7ffb88615217d6d8
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent {
-<<<<<<< HEAD
 users = [
   {
     id: 1,
@@ -109,7 +102,6 @@ users = [
       this.displayDialog = false;
     }
   }
-=======
   showForm = false;
   newUser: NewUser = { nombre: '', usuario: '', clave: '', correo: '', rol: '' };
 
@@ -170,5 +162,4 @@ users = [
       });
     });
   }
->>>>>>> c5b2ad9ed2b816feb3611e2a7ffb88615217d6d8
 }
