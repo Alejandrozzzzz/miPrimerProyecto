@@ -3,14 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
-<<<<<<< HEAD
-import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
-import { DropdownModule } from 'primeng/dropdown';
-import { Password } from 'primeng/password';
-=======
-import { InputTextModule } from 'primeng/inputtext';
->>>>>>> 601190e8bbd9cd4f607c011e7716fe4edd5116a1
 import { PasswordModule } from 'primeng/password';
 import { UsersService, NewUser } from '../../services/users.service';
 
