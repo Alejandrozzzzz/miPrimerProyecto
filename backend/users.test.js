@@ -3,10 +3,7 @@ const mongoose = require('mongoose');
 const app = require('./index');
 
 beforeAll(async () => {
-  await mongoose.connect('mongodb://localhost:27017/local', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
+  await mongoose.connect('mongodb://localhost:27017/local');
 });
 
 afterAll(async () => {

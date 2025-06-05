@@ -2,10 +2,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // Conectar a MongoDB
-mongoose.connect('mongodb://localhost:27017/local', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log('Conectado a MongoDB'))
+mongoose.connect('mongodb://localhost:27017/local')
+  .then(() => console.log('Conectado a MongoDB'))
   .catch(err => console.error('Error al conectar:', err));
 
 // Definir el esquema
