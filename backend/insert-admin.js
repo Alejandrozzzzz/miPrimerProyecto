@@ -10,6 +10,7 @@ mongoose.connect('mongodb://localhost:27017/local', {
 
 // Definir el esquema
 const userSchema = new mongoose.Schema({
+  nombre: String,
   usuario: String,
   correo: String,
   clave: String,
@@ -33,6 +34,7 @@ async function crearAdmin() {
     const hash = await bcrypt.hash('1234', 10);
 
     const nuevoUsuario = new User({
+      nombre: 'Administrador',
       usuario: 'admin1',
       correo: 'admin@ejemplo1.com',
       clave: hash,
