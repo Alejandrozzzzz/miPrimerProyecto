@@ -31,6 +31,7 @@ router.post('/login', async (req, res) => {
     res.json({
       mensaje: 'Login exitoso',
       usuario: {
+        nombre: user.nombre,
         usuario: user.usuario,
         correo: user.correo,
         rol: user.rol,
@@ -44,7 +45,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-  const { usuario, correo, clave, rol } = req.body;
+  const { nombre, usuario, correo, clave, rol } = req.body;
 
   try {
     // Verifica si el usuario ya existe
@@ -58,6 +59,7 @@ router.post('/register', async (req, res) => {
 
     // Crear nuevo usuario
     const nuevoUsuario = new User({
+      nombre,
       usuario,
       correo,
       clave: claveHasheada,

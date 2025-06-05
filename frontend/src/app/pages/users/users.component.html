@@ -6,6 +6,7 @@
 
   <!-- Card contenedor del módulo de usuarios -->
   <div class="users-container">
+<<<<<<< HEAD
     <div class="card">
       <div class="actions">
         <button
@@ -107,5 +108,107 @@
   </div>
 </p-dialog>
     </div>
+=======
+    <div class="actions">
+      <button
+        pButton
+        type="button"
+        label="Agregar Usuario"
+        icon="pi pi-plus"
+        class="add-user-btn"
+        (click)="toggleForm()"
+      ></button>
+    </div>
+
+    <div class="add-form" *ngIf="showForm">
+      <form (ngSubmit)="addUser()" #userForm="ngForm">
+        <input
+          type="text"
+          placeholder="Nombre"
+          name="nombre"
+          [(ngModel)]="newUser.nombre"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Usuario"
+          name="usuario"
+          [(ngModel)]="newUser.usuario"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          name="clave"
+          [(ngModel)]="newUser.clave"
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          name="correo"
+          [(ngModel)]="newUser.correo"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Rol"
+          name="rol"
+          [(ngModel)]="newUser.rol"
+          required
+        />
+        <button pButton type="submit" label="Guardar" [disabled]="userForm.invalid"></button>
+      </form>
+    </div>
+
+    <p-table
+      [value]="users"
+      [paginator]="true"
+      [rows]="5"
+      [scrollable]="true"
+      scrollHeight="flex"
+      class="p-table"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Usuario</th>
+          <th>Email</th>
+          <th>Rol</th>
+          <th>Estado</th>
+          <th>Creado</th>
+          <th>Último Acceso</th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-user>
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td>{{ user.status }}</td>
+          <td>{{ user.createdAt }}</td>
+          <td>{{ user.lastLogin }}</td>
+          <td>
+            <button
+              pButton
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-info"
+              style="margin-right: 0.5rem;"
+            ></button>
+            <button
+              pButton
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-danger"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+>>>>>>> c5b2ad9ed2b816feb3611e2a7ffb88615217d6d8
   </div>
 </section>
