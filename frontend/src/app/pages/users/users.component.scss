@@ -45,6 +45,18 @@ background: linear-gradient(135deg, #000000 0%, #360907 100%);
     }
   }
 }
+
+.add-form {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+
+  input {
+    padding: 0.5rem;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+  }
+}
 .p-table .p-datatable-thead > tr > th {
   background-color: #e0f7fa;
   color: #004d40;

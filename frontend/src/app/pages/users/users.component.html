@@ -13,7 +13,49 @@
         label="Agregar Usuario"
         icon="pi pi-plus"
         class="add-user-btn"
+        (click)="toggleForm()"
       ></button>
+    </div>
+
+    <div class="add-form" *ngIf="showForm">
+      <form (ngSubmit)="addUser()" #userForm="ngForm">
+        <input
+          type="text"
+          placeholder="Nombre"
+          name="nombre"
+          [(ngModel)]="newUser.nombre"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Usuario"
+          name="usuario"
+          [(ngModel)]="newUser.usuario"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          name="clave"
+          [(ngModel)]="newUser.clave"
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          name="correo"
+          [(ngModel)]="newUser.correo"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Rol"
+          name="rol"
+          [(ngModel)]="newUser.rol"
+          required
+        />
+        <button pButton type="submit" label="Guardar" [disabled]="userForm.invalid"></button>
+      </form>
     </div>
 
     <p-table

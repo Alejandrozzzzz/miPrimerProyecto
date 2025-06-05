@@ -8,6 +8,17 @@ router.get('/test', (req, res) => {
   res.json({ message: 'Ruta /users/test funcionando correctamente' });
 });
 
+// Obtener todos los usuarios
+router.get('/', async (req, res) => {
+  try {
+    const usuarios = await User.find({}, '-clave');
+    res.json(usuarios);
+  } catch (err) {
+    console.error('Error al obtener usuarios:', err);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 // Ruta de login
 router.post('/login', async (req, res) => {
   const { usuario, clave } = req.body;
@@ -31,6 +42,7 @@ router.post('/login', async (req, res) => {
     res.json({
       mensaje: 'Login exitoso',
       usuario: {
+        nombre: user.nombre,
         usuario: user.usuario,
         correo: user.correo,
         rol: user.rol,
@@ -44,7 +56,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-  const { usuario, correo, clave, rol } = req.body;
+  const { nombre, usuario, correo, clave, rol } = req.body;
 
   try {
     // Verifica si el usuario ya existe
@@ -58,6 +70,7 @@ router.post('/register', async (req, res) => {
 
     // Crear nuevo usuario
     const nuevoUsuario = new User({
+      nombre,
       usuario,
       correo,
       clave: claveHasheada,
