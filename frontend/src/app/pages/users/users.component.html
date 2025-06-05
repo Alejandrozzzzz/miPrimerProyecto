@@ -1,112 +1,11 @@
 <section class="users-wrapper">
-  <!-- Banner -->
+  <!-- Banner superior -->
   <div class="page-banner">
     <h1>Usuarios</h1>
   </div>
 
-  <!-- Card contenedor del módulo de usuarios -->
+  <!-- Contenido principal -->
   <div class="users-container">
-    <div class="card">
-      <div class="actions">
-        <button
-          pButton
-          type="button"
-          label="Agregar Usuario"
-          icon="pi pi-plus"
-          class="add-user-btn"
-        (click)="displayDialog = true" 
-        ></button>
-      </div>
-
-      <!-- Tabla dentro de card -->
-      <p-table
-        [value]="users"
-        [paginator]="true"
-        [rows]="5"
-        [scrollable]="true"
-        scrollHeight="flex"
-        class="p-table"
-      >
-        <ng-template pTemplate="header">
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Usuario</th>
-            <th>Contraseña</th>
-            <th>Email</th>
-            <th>Rol</th>
-            <th>Estado</th>
-            <th>Creado</th>
-            <th>Último Acceso</th>
-            <th>Acciones</th>
-          </tr>
-        </ng-template>
-
-        <ng-template pTemplate="body" let-user>
-          <tr>
-            <td>{{ user.id }}</td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.username }}</td>
-            <td>******</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.role }}</td>
-            <td>{{ user.status }}</td>
-            <td>{{ user.createdAt }}</td>
-            <td>{{ user.lastLogin }}</td>
-            <td>
-              <button
-                pButton
-                icon="pi pi-pencil"
-                class="p-button-rounded p-button-info"
-                style="margin-right: 0.5rem;"
-              ></button>
-              <button
-                pButton
-                icon="pi pi-trash"
-                class="p-button-rounded p-button-danger"
-              ></button>
-            </td>
-          </tr>
-        </ng-template>
-      </p-table>
-      <p-dialog
-  header="Agregar Usuario"
-  [(visible)]="displayDialog"
-  [modal]="true"
-  [style]="{ width: '400px' }"
-  [closable]="true"
-  [dismissableMask]="true"
->
-  <div class="form-group">
-    <label for="name">Nombre</label>
-    <input pInputText id="name" [(ngModel)]="newUser.name" class="form-control" />
-
-    <label for="username">Usuario</label>
-    <input pInputText id="username" [(ngModel)]="newUser.username" class="form-control" />
-
-       <label for="name">Contraseña</label>
-    <input pInputText id="password" [(ngModel)]="newUser.Password" class="form-control" type="password" />
-
-    <label for="email">Email</label>
-    <input pInputText id="email" [(ngModel)]="newUser.email" class="form-control"  />
-
-    <label for="role">Rol</label>
-    <p-dropdown
-      [options]="roles"
-      [(ngModel)]="newUser.role"
-      placeholder="Seleccionar rol"
-      optionLabel="label"
-    ></p-dropdown>
-    <hr>
-  </div>
-<hr>
-  <div class="dialog-actions">
-    <button pButton label="Cancelar" class="p-button-text" (click)="displayDialog = false"></button>
-    <p-button label="Guardar" variant="outlined" (click)="guardarUsuario()"/>
-    
-  </div>
-</p-dialog>
-    </div>
     <div class="actions">
       <button
         pButton
