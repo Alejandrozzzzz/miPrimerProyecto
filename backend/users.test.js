@@ -22,3 +22,11 @@ describe('POST /users/register', () => {
     expect(res.statusCode).toBe(201);
   });
 });
+
+describe('GET /users', () => {
+  it('should return users list', async () => {
+    const res = await request(app).get('/users');
+    expect(res.statusCode).toBe(200);
+    expect(Array.isArray(res.body.users)).toBe(true);
+  });
+});
