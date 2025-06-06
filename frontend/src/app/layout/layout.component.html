@@ -1,0 +1,29 @@
+<!-- Botón ☰ totalmente fuera del sidebar -->
+<button
+  class="hamburger"
+  (click)="toggleSidebar()"
+  [ngStyle]="{ left: sidebarOpen ? '200px' : '16px' }"
+>
+  <i class="pi" [ngClass]="sidebarOpen ? 'pi-times' : 'pi-bars'"></i>
+</button>
+
+<!-- Sidebar -->
+<div class="sidebar" [class.open]="sidebarOpen">
+  <div class="menu-header">Menú</div>
+  <nav>
+   <a routerLink="/home" (click)="toggleSidebar()">
+  <i class="pi pi-home" style="margin-right: 8px;"></i> Inicio
+  </a>
+  <a routerLink="/users" (click)="toggleSidebar()">
+  <i class="pi pi-users" style="margin-right: 8px;"></i> Usuarios
+  </a>
+  </nav>
+</div>
+
+<!-- Backdrop -->
+<div class="backdrop" *ngIf="sidebarOpen" (click)="toggleSidebar()"></div>
+
+<!-- Contenido -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
