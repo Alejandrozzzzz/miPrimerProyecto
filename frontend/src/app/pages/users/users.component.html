@@ -14,65 +14,39 @@
         icon="pi pi-plus"
         class="add-user-btn"
         (click)="toggleForm()"
-
-
-
       ></button>
     </div>
 
     
-    <p-dialog
-      [(visible)]="showForm"
-      modal="true"
-      [style]="{ width: '1000px' }"
-      header="Agregar Usuario"
-    (onHide)="showForm = false"
-    >
-      <form (ngSubmit)="addUser()" #userForm="ngForm" class="add-form">
-        <input
-          type="text"
-          placeholder="Nombre"
-          name="nombre"
-          [(ngModel)]="newUser.nombre"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Usuario"
-          name="usuario"
-          [(ngModel)]="newUser.usuario"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          name="clave"
-          [(ngModel)]="newUser.clave"
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          name="correo"
-          [(ngModel)]="newUser.correo"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Rol"
-          name="rol"
-          [(ngModel)]="newUser.rol"
-          required
-        />
-        <button
-          pButton
-          type="submit"
-          label="Guardar"
-          [disabled]="userForm.invalid"
-          class="p-button-sm"
-        ></button>
-      </form>
-    </p-dialog>
+<p-dialog
+  [(visible)]="showForm"
+  modal="true"
+  [style]="{ width: '100%', maxWidth: '500px' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <ng-template pTemplate="header">
+    <div class="dialog-header">
+      <i class="pi pi-user-plus" style="margin-right: 0.5rem;"></i>
+      {{ editingUser ? 'Editar Usuario' : 'Agregar Usuario' }}
+    </div>
+  </ng-template>
+
+  <form (ngSubmit)="addUser()" #userForm="ngForm" class="add-form">
+    <div class="form-group">
+      <input type="text" placeholder="Nombre" name="nombre" [(ngModel)]="newUser.nombre" required />
+      <input type="text" placeholder="Usuario" name="usuario" [(ngModel)]="newUser.usuario" required />
+      <input type="password" placeholder="Contraseña" name="clave" [(ngModel)]="newUser.clave" required />
+      <input type="email" placeholder="Email" name="correo" [(ngModel)]="newUser.correo" required />
+      <input type="text" placeholder="Rol" name="rol" [(ngModel)]="newUser.rol" required />
+    </div>
+
+    <div class="form-actions">
+      <button pButton type="submit" label="Guardar" class="p-button-success" [disabled]="userForm.invalid"></button>
+      <button pButton type="button" label="Cancelar" class="p-button-secondary" (click)="showForm = false"></button>
+    </div>
+  </form>
+</p-dialog>
     
 
     <div class="table-container">
@@ -112,13 +86,14 @@
             <button
               pButton
               icon="pi pi-pencil"
-              class="p-button-rounded p-button-info"
-              style="margin-right: 0.5rem;"
+              class="p-button-Edit"
+              style="margin-right: 1.5rem;"
+              
             ></button>
             <button
               pButton
               icon="pi pi-trash"
-              class="p-button-rounded p-button-danger"
+              class=" p-button-Delete"
             ></button>
           </td>
         </tr>

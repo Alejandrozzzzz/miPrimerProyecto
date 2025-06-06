@@ -86,42 +86,50 @@ background: linear-gradient(135deg, #000000 0%, #360907 100%);
     text-align: left;
     vertical-align: middle;
   }
-.p-dialog {
-  background-color: #ffffff !important;
-  border-radius: 10px !important;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3) !important;
+.p-dialog.p-component {
+  background-color: #da1aba !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
   color: #000000 !important;
+  overflow: hidden;
 }
 
+/* Estilo del encabezado */
 .p-dialog .p-dialog-header {
-  background: linear-gradient(to right, #0d47a1, #1976d2) !important;
-  color: white !important;
-  font-weight: bold !important;
-  padding: 1.5rem !important;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  background: linear-gradient(135deg, #0d47a1, #1976d2) !important;
+  color: rgb(153, 11, 82) !important;
+  font-weight: bold;
+  padding: 1.25rem !important;
+  font-size: 1.25rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
+/* Estilo del contenido */
 .p-dialog .p-dialog-content {
-  background-color: #f9f9f9 !important;
+  background-color: #5c1818 !important;
   padding: 2rem !important;
   color: #333 !important;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  font-size: 1rem;
 }
 
+/* Estilo del botón */
 .p-dialog .p-button {
   margin-top: 1rem;
   width: 100%;
+  font-weight: bold;
 }
-
   .p-datatable-thead > tr > th {
-    background-color: #e3f2fd;
+    background-color: #701e09;
     color: #2c3e50;
+    
     font-weight: 600;
+    
   }
 
   .p-datatable-tbody > tr > td {
     color: #333;
+     font-weight: 400;
+     padding: 1rem !important;
   }
 }

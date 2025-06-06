@@ -20,6 +20,7 @@ import { ViewEncapsulation } from '@angular/core';
 })
 export class UsersComponent {
   showForm = false;
+  editingUser = false;
   newUser: NewUser = { nombre: '', usuario: '', clave: '', correo: '', rol: '' };
 
   constructor(private usersService: UsersService) {}
