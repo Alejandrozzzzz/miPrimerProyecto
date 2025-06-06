@@ -14,17 +14,23 @@
         icon="pi pi-plus"
         class="add-user-btn"
         (click)="toggleForm()"
+
+
+
       ></button>
     </div>
 
+    
     <p-dialog
       [(visible)]="showForm"
       modal="true"
       [style]="{ width: '400px' }"
       header="Agregar Usuario"
       (onHide)="toggleForm()"
+      
     >
-      <form (ngSubmit)="addUser()" #userForm="ngForm" class="add-form">
+      <form (ngSubmit)="addUser()" #userForm="ngForm" class="add-form"
+      background-color="background-color">
         <input
           type="text"
           placeholder="Nombre"
@@ -69,6 +75,7 @@
         ></button>
       </form>
     </p-dialog>
+    
 
     <div class="table-container">
       <p-table
