@@ -50,13 +50,36 @@ background: linear-gradient(135deg, #000000 0%, #360907 100%);
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   gap: 0.5rem;
   background-color: #1976d2;
+=======
+  gap: 0.75rem;
+>>>>>>> fdafe91f50a39997a90cb127e88f252d8d92703b
 
   input {
-    padding: 0.5rem;
-    border: 1px solid #aaa;
-    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  .submit-btn {
+    align-self: flex-end;
+  }
+}
+
+.user-dialog {
+  border-radius: 8px;
+
+  .p-dialog-header {
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: #fff;
+    padding: 1rem;
+  }
+
+  .p-dialog-content {
+    background: #fafafa;
+    padding: 1.5rem;
   }
 }
 
