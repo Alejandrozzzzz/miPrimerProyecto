@@ -78,4 +78,34 @@ router.post('/register', async (req, res) => {
   }
 });
 
+// Obtener usuarios paginados
+router.get('/', async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 50;
+
+  try {
+    const users = await User.find()
+      .skip((page - 1) * limit)
+      .limit(limit);
+
+    const formatted = users.map((u) => ({
+      id: u._id,
+      name: u.nombre,
+      username: u.usuario,
+      email: u.correo,
+      role: u.rol,
+      status: u.activo ? 'Activo' : 'Inactivo',
+      createdAt: u.fecha_creacion
+        ? u.fecha_creacion.toISOString().split('T')[0]
+        : '',
+      lastLogin: ''
+    }));
+
+    res.json({ users: formatted });
+  } catch (err) {
+    console.error('Error al obtener usuarios:', err);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 module.exports = router;

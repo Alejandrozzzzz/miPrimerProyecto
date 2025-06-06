@@ -20,4 +20,8 @@ export class UsersService {
   register(user: NewUser): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, user);
   }
+
+  getUsers(page: number = 1): Observable<any> {
+    return this.http.get(`${this.apiUrl}?page=${page}&limit=50`);
+  }
 }

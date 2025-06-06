@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
@@ -14,44 +14,23 @@ import { UsersService, NewUser } from '../../services/users.service';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
   showForm = false;
   newUser: NewUser = { nombre: '', usuario: '', clave: '', correo: '', rol: '' };
 
   constructor(private usersService: UsersService) {}
 
-  users = [
-    {
-      id: 1,
-      name: 'Juan Pérez',
-      email: 'juan@example.com',
-      role: 'Admin',
-      username: 'juanp',
-      status: 'Activo',
-      createdAt: '2024-01-01',
-      lastLogin: '2024-05-25 10:30'
-    },
-    {
-      id: 2,
-      name: 'María Gómez',
-      email: 'maria@example.com',
-      role: 'Usuario',
-      username: 'mariag',
-      status: 'Activo',
-      createdAt: '2024-02-12',
-      lastLogin: '2024-05-24 09:45'
-    },
-    {
-      id: 3,
-      name: 'Carlos Ruiz',
-      email: 'carlos@example.com',
-      role: 'Usuario',
-      username: 'cruiz',
-      status: 'Inactivo',
-      createdAt: '2024-03-01',
-      lastLogin: '2024-05-10 14:15'
-    }
-  ];
+  users: any[] = [];
+
+  ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  loadUsers(page: number = 1) {
+    this.usersService.getUsers(page).subscribe((res) => {
+      this.users = res.users;
+    });
+  }
 
   toggleForm() {
     this.showForm = !this.showForm;
