@@ -17,8 +17,14 @@
       ></button>
     </div>
 
-    <div class="add-form" *ngIf="showForm">
-      <form (ngSubmit)="addUser()" #userForm="ngForm">
+    <p-dialog
+      [(visible)]="showForm"
+      modal="true"
+      [style]="{ width: '400px' }"
+      header="Agregar Usuario"
+      (onHide)="toggleForm()"
+    >
+      <form (ngSubmit)="addUser()" #userForm="ngForm" class="add-form">
         <input
           type="text"
           placeholder="Nombre"
@@ -54,18 +60,25 @@
           [(ngModel)]="newUser.rol"
           required
         />
-        <button pButton type="submit" label="Guardar" [disabled]="userForm.invalid"></button>
+        <button
+          pButton
+          type="submit"
+          label="Guardar"
+          [disabled]="userForm.invalid"
+          class="p-button-sm"
+        ></button>
       </form>
-    </div>
+    </p-dialog>
 
-    <p-table
-      [value]="users"
-      [paginator]="true"
-      [rows]="50"
-      [scrollable]="true"
-      scrollHeight="flex"
-      class="p-table"
-    >
+    <div class="table-container">
+      <p-table
+        [value]="users"
+        [paginator]="true"
+        [rows]="50"
+        [scrollable]="true"
+        scrollHeight="flex"
+        class="p-table"
+      >
       <ng-template pTemplate="header">
         <tr>
           <th>ID</th>
@@ -105,6 +118,7 @@
           </td>
         </tr>
       </ng-template>
-    </p-table>
+      </p-table>
+    </div>
   </div>
 </section>

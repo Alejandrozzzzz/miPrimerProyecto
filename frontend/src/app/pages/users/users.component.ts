@@ -5,12 +5,13 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
+import { DialogModule } from 'primeng/dialog';
 import { UsersService, NewUser } from '../../services/users.service';
 
 @Component({
   standalone: true,
   selector: 'app-users',
-  imports: [CommonModule, FormsModule, TableModule, ButtonModule, InputTextModule, PasswordModule],
+  imports: [CommonModule, FormsModule, TableModule, ButtonModule, InputTextModule, PasswordModule, DialogModule],
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })

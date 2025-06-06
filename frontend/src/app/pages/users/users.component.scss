@@ -49,6 +49,7 @@ background: linear-gradient(135deg, #000000 0%, #360907 100%);
 .add-form {
   margin-bottom: 1rem;
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
 
   input {
@@ -56,6 +57,13 @@ background: linear-gradient(135deg, #000000 0%, #360907 100%);
     border: 1px solid #aaa;
     border-radius: 4px;
   }
+}
+
+.table-container {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 .p-table .p-datatable-thead > tr > th {
   background-color: #e0f7fa;
