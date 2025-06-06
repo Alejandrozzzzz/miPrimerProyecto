@@ -69,9 +69,11 @@ router.post('/register', async (req, res) => {
     });
 
     // Guardar en la base de datos
-    await nuevoUsuario.save();
+    const usermongo=await nuevoUsuario.save();
+    delete usermongo.clave
+    
 
-    res.status(201).json({ mensaje: 'Usuario registrado correctamente' });
+    res.status(201).json({ mensaje: 'Usuario registrado correctamente',user:usermongo });
   } catch (err) {
     console.error('Error al registrar usuario:', err);
     res.status(500).json({ error: 'Error interno del servidor' });

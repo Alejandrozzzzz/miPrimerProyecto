@@ -74,10 +74,10 @@ export class UsersComponent {
   }
 
   addUser() {
-    this.usersService.register(this.newUser).subscribe(() => {
+    this.usersService.register(this.newUser).subscribe((respuesta) => {
       this.showForm = false;
       this.users.push({
-        id: this.users.length + 1,
+        id: respuesta.user._id   ,//       this.users.length + 1,
         name: this.newUser.nombre,
         email: this.newUser.correo,
         role: this.newUser.rol,
