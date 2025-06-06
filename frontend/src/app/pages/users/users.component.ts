@@ -22,10 +22,7 @@ export class UsersComponent {
   showForm = false;
   editingUser = false;
   newUser: NewUser = { nombre: '', usuario: '', clave: '', correo: '', rol: '' };
-
-  constructor(private usersService: UsersService) {}
-
-  users = [
+ users = [
     {
       id: 1,
       name: 'Juan Pérez',
@@ -57,6 +54,17 @@ export class UsersComponent {
       lastLogin: '2024-05-10 14:15'
     }
   ];
+  constructor(private usersService: UsersService) {
+
+   this.usersService.getUsers().subscribe(Objeto=>{
+    console.log(Objeto)
+     console.log(Objeto.users)
+  this.users=Objeto.users
+
+   })
+  }
+
+ 
 
   toggleForm() {
     this.showForm = !this.showForm;
