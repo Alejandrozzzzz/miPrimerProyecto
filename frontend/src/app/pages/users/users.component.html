@@ -20,12 +20,18 @@
     <p-dialog
       [(visible)]="showForm"
       modal="true"
-      [style]="{ width: '400px' }"
+      [style]="{ width: '430px' }"
       header="Agregar Usuario"
       (onHide)="toggleForm()"
+      styleClass="user-dialog"
     >
-      <form (ngSubmit)="addUser()" #userForm="ngForm" class="add-form">
+      <form
+        (ngSubmit)="addUser()"
+        #userForm="ngForm"
+        class="add-form p-fluid"
+      >
         <input
+          pInputText
           type="text"
           placeholder="Nombre"
           name="nombre"
@@ -33,6 +39,7 @@
           required
         />
         <input
+          pInputText
           type="text"
           placeholder="Usuario"
           name="usuario"
@@ -40,6 +47,7 @@
           required
         />
         <input
+          pPassword
           type="password"
           placeholder="Contraseña"
           name="clave"
@@ -47,6 +55,7 @@
           required
         />
         <input
+          pInputText
           type="email"
           placeholder="Email"
           name="correo"
@@ -54,6 +63,7 @@
           required
         />
         <input
+          pInputText
           type="text"
           placeholder="Rol"
           name="rol"
@@ -65,7 +75,7 @@
           type="submit"
           label="Guardar"
           [disabled]="userForm.invalid"
-          class="p-button-sm"
+          class="submit-btn"
         ></button>
       </form>
     </p-dialog>
