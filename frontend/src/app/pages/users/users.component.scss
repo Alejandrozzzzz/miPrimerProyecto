@@ -86,6 +86,34 @@ background: linear-gradient(135deg, #000000 0%, #360907 100%);
     text-align: left;
     vertical-align: middle;
   }
+.p-dialog {
+  background-color: #ffffff !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3) !important;
+  color: #000000 !important;
+}
+
+.p-dialog .p-dialog-header {
+  background: linear-gradient(to right, #0d47a1, #1976d2) !important;
+  color: white !important;
+  font-weight: bold !important;
+  padding: 1.5rem !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.p-dialog .p-dialog-content {
+  background-color: #f9f9f9 !important;
+  padding: 2rem !important;
+  color: #333 !important;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.p-dialog .p-button {
+  margin-top: 1rem;
+  width: 100%;
+}
 
   .p-datatable-thead > tr > th {
     background-color: #e3f2fd;

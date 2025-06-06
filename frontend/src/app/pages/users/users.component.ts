@@ -7,13 +7,16 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
 import { PasswordModule } from 'primeng/password';
 import { UsersService, NewUser } from '../../services/users.service';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   standalone: true,
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-users',
-  imports: [CommonModule, FormsModule, TableModule, ButtonModule, InputTextModule, PasswordModule,DialogModule],
+  imports: [CommonModule, FormsModule, TableModule, ButtonModule, InputTextModule, PasswordModule,DialogModule,],
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
+  
 })
 export class UsersComponent {
   showForm = false;

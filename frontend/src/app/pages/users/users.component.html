@@ -24,9 +24,9 @@
     <p-dialog
       [(visible)]="showForm"
       modal="true"
-      [style]="{ width: '400px' }"
+      [style]="{ width: '1000px' }"
       header="Agregar Usuario"
-      (onHide)="toggleForm()"
+    (onHide)="showForm = false"
     >
       <form (ngSubmit)="addUser()" #userForm="ngForm" class="add-form">
         <input
